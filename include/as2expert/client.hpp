@@ -42,6 +42,8 @@ class Messages {
 public:
     explicit Messages(std::shared_ptr<Transport> t) : t_(std::move(t)) {}
     json list(const json& filter = json::object());
+    /// List a station's folders (id, name, parent_id, count, icono, …).
+    json folders(const json& filter = json::object());
     json get(const json& id);
     /// Download the payload as raw bytes (base64-decoded).
     std::vector<std::uint8_t> download(const json& id);

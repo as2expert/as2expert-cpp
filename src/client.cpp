@@ -37,6 +37,7 @@ std::vector<std::uint8_t> decode_b64_field(const json& data) {
 
 // ---- Messages ---------------------------------------------------------------
 json Messages::list(const json& filter) { return as_array(t_->post("/messages", filter)); }
+json Messages::folders(const json& filter) { return as_array(t_->post("/messages/folders", filter)); }
 json Messages::get(const json& id) { return t_->post("/messages/detail", {{"id", id}}); }
 
 std::vector<std::uint8_t> Messages::download(const json& id) {
