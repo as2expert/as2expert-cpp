@@ -68,6 +68,9 @@ public:
     json list(const json& filter = json::object());
     json get(const json& id);
     json create(const json& partner);
+    /// Update a partner's identity fields; `partner` must carry `id`.
+    json update(const json& partner);
+    json remove(const json& id);
 
 private:
     std::shared_ptr<Transport> t_;
@@ -91,6 +94,9 @@ public:
     json get(const json& id);
     json stats(const json& id);
     json create(const json& station);
+    /// Update a station's identity fields; `station` must carry `id`.
+    json update(const json& station);
+    json remove(const json& id);
 
 private:
     std::shared_ptr<Transport> t_;

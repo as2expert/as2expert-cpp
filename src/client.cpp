@@ -70,6 +70,8 @@ json Messages::changes(const json& params) { return t_->post("/messages/changes"
 json Partners::list(const json& filter) { return as_array(t_->post("/partners", filter)); }
 json Partners::get(const json& id) { return t_->post("/partners/detail", {{"id", id}}); }
 json Partners::create(const json& partner) { return t_->post("/partners/create", partner); }
+json Partners::update(const json& partner) { return t_->post("/partners/update", partner); }
+json Partners::remove(const json& id) { return t_->post("/partners/delete", {{"id", id}}); }
 
 // ---- Certificates -----------------------------------------------------------
 json Certificates::list() { return as_array(t_->post("/certificates", json::object())); }
@@ -81,6 +83,8 @@ json Stations::list(const json& filter) { return as_array(t_->post("/stations", 
 json Stations::get(const json& id) { return t_->post("/stations/detail", {{"id", id}}); }
 json Stations::stats(const json& id) { return t_->post("/stations/stats", {{"id", id}}); }
 json Stations::create(const json& station) { return t_->post("/stations/create", station); }
+json Stations::update(const json& station) { return t_->post("/stations/update", station); }
+json Stations::remove(const json& id) { return t_->post("/stations/delete", {{"id", id}}); }
 
 // ---- Webhooks ---------------------------------------------------------------
 json Webhooks::configure(const json& config) { return t_->post("/webhooks/configure", config); }
